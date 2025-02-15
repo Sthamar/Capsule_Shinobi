@@ -1,0 +1,317 @@
+body{
+    background-image: url(bg-1.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+}
+
+.main{
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    height: 100vh;
+}
+
+
+
+.left-wall {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    justify-content: center;
+    align-items: center;
+   background-image:linear-gradient(to right,rgb(65, 65, 65), rgb(0, 0, 0));
+   box-shadow: 0px 10px 10px 10px rgba(63, 63, 63, 0.959);
+
+
+}
+
+.left-wall .windows{
+    background-image: linear-gradient(to top,yellow, white);
+    width: 50%;
+    height: 80%;
+    border: none;
+    border-bottom: 5px solid black;
+    box-shadow: 2px 2px 5px 10px rgba(221, 245, 4, 0.568);
+    transform: translateY(-50%);
+    animation-name: window-move;
+    animation-duration: 1s;
+
+    animation-iteration-count: infinite;
+    animation-timing-function: linear;
+}
+
+@keyframes window-move {
+    0%{
+        transform: translateY(-50%);
+    }
+    100%{
+        transform: translateY(70%);
+    }
+}
+
+.right-wall {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    justify-content: center;
+    align-items: center;
+   background-image:linear-gradient(to right, rgb(0, 0, 0),rgb(65, 65, 65));
+   box-shadow: 0px 10px 10px 10px rgba(63, 63, 63, 0.959);
+
+
+}
+
+.right-wall .windows{
+    background-image: linear-gradient(to top,yellow, white);
+    width: 50%;
+    height: 80%;
+    justify-self: end;
+    border: none;
+    border-bottom: 5px solid black;
+    box-shadow: 2px 2px 5px 10px rgba(221, 245, 4, 0.568);
+    transform: translateY(-50%);
+    animation-name: window-move;
+    animation-duration: 1s;
+
+    animation-iteration-count: infinite;
+    animation-timing-function: linear;
+}
+
+@keyframes window-move {
+    0%{
+        transform: translateY(-50%);
+    }
+    100%{
+        transform: translateY(70%);
+    }
+}
+.play-ground{
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+}
+
+.text{
+    justify-self:flex-start;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.player-left {
+    position: absolute;
+    width: 60px;
+    height: 30px;
+    display: grid;
+    grid-template-columns: 60% 20% 20%;
+    bottom: 20%;
+    left: 35%;
+    transform: translateX(-80%);
+    rotate: -45deg;
+    box-shadow: 4px 10px 8px 0 rgba(68, 67, 67, 0.959);
+    animation-name: ninja-jump-right;
+    animation-duration: 0.1s;
+}
+
+@keyframes ninja-jump-left {
+    0%{
+        left: 35%;
+        transform: translateX(-80%);
+        rotate: -45deg;
+    }
+    50%{
+        left:50%;
+        transform: translateX(100%);
+        rotate: -125deg;
+    }
+    100%{
+        left:62%;
+        rotate:-125deg;
+    }
+}
+
+
+/* Ninja Head */
+.head {
+    background-color: rgb(193, 243, 10);
+    border-radius: 0 50% 50% 0;
+    position: relative;
+}
+
+.headband{
+    background-color: red;
+}
+.body{
+    background-image: linear-gradient(to right,rgb(0, 0, 0), rgb(255, 250, 250));
+    border-radius: 50% 0 0 50%;
+}
+
+
+.player-right{
+    position: absolute;
+    width: 60px;
+    height: 30px;
+    display: grid;
+    grid-template-columns: 60% 20% 20%;
+    bottom: 20%;
+    right: 35%;
+    transform: translateX(-100%);
+    rotate: -125deg;
+    box-shadow: 4px -10px 8px 0 rgba(68, 67, 67, 0.959);
+    animation-name: ninja-jump-left;
+    animation-duration: 0.1s;
+}
+
+
+@keyframes ninja-jump-right {
+    0%{
+        right: 35%;
+        transform: translateX(-100%);
+        rotate: -125deg;
+    }
+    50%{
+        right:50%;
+        transform: translateX(100%);
+        rotate: -45deg;
+    }
+    100%{
+        right:61%;
+        rotate:-45deg;
+    }
+}
+
+
+/* obstacle */
+
+.obs{
+    position: absolute;
+    height: 2%;
+    width: 4%;
+    background-color: red;
+    box-shadow: 0 0 20px 10px rgba(235, 3, 92, 0.5);
+    animation-name: obs-move;
+    animation-duration: 4s;
+    animation-iteration-count: infinite;
+    animation-timing-function: linear;
+}
+
+.obs-right{
+    position: absolute;
+    /* transform: translateX(730%); */
+    right: 33.1%;
+    height: 2%;
+    width: 4%;
+    background-color: red;
+    box-shadow: 0 0 20px 10px rgba(235, 3, 92, 0.5);
+    animation-name: obs-move;
+    animation-duration: 4s;
+    animation-iteration-count: infinite;
+    animation-timing-function: linear;
+}
+
+@keyframes obs-move {
+    0%{
+        transform: translateY(0%);
+        width: 4%;
+    }
+    25%{
+        width: 2%;
+    }
+    50%{
+        width: 4%;
+    }
+    70%{
+        width: 2%;
+    }
+    100%{
+        transform: translateY(100vh);
+        width: 4%;
+    }
+}
+
+
+
+
+.coin{
+    position: absolute;
+    height: 3%;
+    width: 1.5%;
+    background-image:linear-gradient(yellow, rgb(231, 230, 230)) ;
+    border-radius: 100%;
+    box-shadow: 0px 0px 10px 10px rgba(193, 243, 10, 0.493);
+    animation-name: coin-move-right;
+    animation-duration: 4s;
+    animation-iteration-count: infinite;
+    animation-timing-function: linear;
+}
+
+.coin-right{
+    position: absolute;
+    right: 33.3%;
+    height: 3%;
+    width: 1.5%;
+    background-image:linear-gradient(yellow, rgb(231, 230, 230)) ;
+    border-radius: 100%;
+    box-shadow: 0px 0px 10px 10px rgba(193, 243, 10, 0.493);
+    animation-name: coin-move-right;
+    animation-duration: 4s;
+    animation-iteration-count: infinite;
+    animation-timing-function: linear;
+}
+
+
+@keyframes coin-move-right {
+    0%{
+        transform: translateY(0%);
+        background-image:linear-gradient(yellow, rgb(231, 230, 230)) ;
+        box-shadow: 0px 0px 10px 10px rgba(193, 243, 10, 0.493);
+    }
+    25%{
+        box-shadow: 0px 0px 10px 20px rgba(193, 243, 10, 0.493);
+        background-image:linear-gradient(to right,yellow, rgb(231, 230, 230)) ;
+    }
+    50%{
+        box-shadow: 0px 0px 10px 10px rgba(193, 243, 10, 0.493);
+        background-image:linear-gradient(yellow, rgb(231, 230, 230)) ;
+    }
+    70%{
+        box-shadow: 0px 0px 10px 20px rgba(193, 243, 10, 0.493);
+        background-image:linear-gradient(to right,yellow, rgb(231, 230, 230)) ;
+    }
+    100%{
+        transform: translateY(100vh);
+        background-image:linear-gradient(yellow, rgb(231, 230, 230)) ;
+        box-shadow: 0px 0px 10px 10px rgba(193, 243, 10, 0.493);
+    }
+}
+
+
+.game-over{
+    align-self: center;
+    background-image: url(gameOver.jpg);
+    padding: 20%;
+    border-radius: 50%;
+    color: white;
+    animation-name: gameOver;
+    animation-duration: 4s;
+}
+
+.play-again{
+    border: none;
+    padding: 10px;
+}
+
+
+@keyframes gameOver {
+    0%{
+        opacity: 0;
+    }
+    100%{
+        opacity: 1;
+    }
+}
+
+.no-animations {
+    animation: none !important;
+}
